@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>edu.unifacef</groupId>
-	<artifactId>priceapi</artifactId>
+	<artifactId>price-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>priceapi</name>
+	<name>price-api</name>
 	<description>API responsável pela gestão de preços dos carros</description>
 	<properties>
 		<java.version>1.8</java.version>
