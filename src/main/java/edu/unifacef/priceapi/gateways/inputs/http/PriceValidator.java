@@ -17,9 +17,6 @@ public class PriceValidator {
 	public void validate(final PriceRequest priceRequest) {
 		if(priceRequest.getFrom() <= priceRequest.getTo()) {
 			throw new IllegalArgumentException(messageUtils.getMessage(PRICE_FROM_LESS_THAN_PRICE_TO));
-		}
-		
-		
+		}		
 	}
-
 }
