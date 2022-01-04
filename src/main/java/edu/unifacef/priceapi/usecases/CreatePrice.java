@@ -35,7 +35,7 @@ public class CreatePrice {
 		}
 		
 		Price saved = priceDataGateway.save(price);
-		if(ff4j.check(Features.SEND_TO_LOCATION.getKey())) {
+		if(ff4j.check(Features.SEND_TO_RENTAL.getKey())) {
 			rentalGateway.send(saved);
 		}
 		return saved;		

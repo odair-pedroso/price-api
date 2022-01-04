@@ -1,6 +1,7 @@
 package edu.unifacef.priceapi.gateways.inputs.http;
 
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,9 +28,17 @@ public class PriceController {
 	
 	private final PriceValidator priceValidator;
 	private final CreatePrice createPrice;
-	private final FindByCarBoard findByTypeCar;
+	private final FindByCarBoard findByCarBoard;
 	private final UpdatePrice updatePrice;
 	
+	
+	
+	@GetMapping
+	public PriceResponse find(@PathVariable final String carBoard) {
+		Price price = findByCarBoard.execute(carBoard);
+		return new PriceResponse(price) ;
+		
+	}
 	
 	
 	@PostMapping
