@@ -4,6 +4,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,21 +32,27 @@ public class PriceController {
 	private final FindByCarBoard findByCarBoard;
 	private final UpdatePrice updatePrice;
 	
+		
+	@PostMapping
+	public PriceResponse create(@PathVariable final String carBoard,@RequestBody @Validated PriceRequest request) {
+		priceValidator.validate(request);
+		Price price = createPrice.execute(request.toDomain(carBoard));		
+		return new PriceResponse(price);
+	}
 	
+	@PutMapping
+	public PriceResponse update(@PathVariable final String carBoard,@RequestBody @Validated final PriceRequest request) {
+		priceValidator.validate(request);
+		Price price = updatePrice.execute(request.toDomain(carBoard));
+		return new PriceResponse(price);		
+		
+	}	
 	
 	@GetMapping
 	public PriceResponse find(@PathVariable final String carBoard) {
 		Price price = findByCarBoard.execute(carBoard);
 		return new PriceResponse(price) ;
 		
-	}
-	
-	
-	@PostMapping
-	public PriceResponse create(@PathVariable final String carBoard,@RequestBody @Validated PriceRequest request) {
-		priceValidator.validate(request);
-		Price price = createPrice.execute(request.toDomain(carBoard));		
-		return new PriceResponse(price);
 	}
 
 }
