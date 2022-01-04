@@ -5,7 +5,7 @@ import java.io.Serializable;
 import javax.validation.constraints.NotNull;
 
 import edu.unifacef.priceapi.domains.Price;
-import edu.unifacef.priceapi.domains.TypeCar;
+
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
@@ -25,9 +25,9 @@ public class PriceRequest implements Serializable {
 	private Double to;
 	
 	
-	public Price toDomain(final TypeCar typeCar) {
+	public Price toDomain(final String carBoard) {
 		return Price.builder()
-			.typeCar(typeCar)
+			.carBoard(carBoard)
 			.from(this.from)
 			.to(this.to)
 			.build();		

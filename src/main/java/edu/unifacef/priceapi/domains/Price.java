@@ -10,7 +10,7 @@ import lombok.Builder;
 @Builder
 public class Price {
 	
-	private TypeCar typeCar;
+	private String carBoard;
 	private Double from;
 	private Double to;
 	private LocalDateTime createdDate;

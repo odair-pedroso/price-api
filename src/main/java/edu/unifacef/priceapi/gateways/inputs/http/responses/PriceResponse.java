@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import edu.unifacef.priceapi.domains.Price;
-import edu.unifacef.priceapi.domains.TypeCar;
+
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
@@ -15,7 +15,7 @@ public class PriceResponse implements Serializable {
 	
 	
 	@ApiModelProperty(position = 0)
-	private TypeCar typeCar;
+	private String carBoard;
 	@ApiModelProperty(position = 1)
 	private Double from;
 	@ApiModelProperty(position = 2)
@@ -26,7 +26,7 @@ public class PriceResponse implements Serializable {
 	private LocalDateTime lastModifiedDate;
 	
 	public PriceResponse(final Price price) {
-		this.typeCar = price.getTypeCar();
+		this.carBoard = price.getCarBoard();
 		this.from = price.getFrom();
 		this.to = price.getTo();
 		this.createdDate = price.getCreatedDate();
