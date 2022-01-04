@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 public enum Features {
 	
 	SEND_TO_LOCATION(
-			"send-to-location",
+			"send-to-rental",
 			"features",
 			"Envia o preço cadastrado para a Location",
 			true);

@@ -7,7 +7,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Component;
 
 import edu.unifacef.priceapi.domains.Price;
-import edu.unifacef.priceapi.domains.TypeCar;
+
 import edu.unifacef.priceapi.gateways.outputs.PriceDataGateway;
 import edu.unifacef.priceapi.gateways.outputs.mongodb.documents.PriceDocument;
 import edu.unifacef.priceapi.gateways.outputs.mongodb.repositories.PriceRepository;
@@ -28,8 +28,8 @@ public class PriceDataGatewayMongoImpl implements PriceDataGateway {
 	}
 
 	@Override
-	public Optional<Price> findByType(final TypeCar typeCar) {		
-		return priceRepository.findById(type).map(PriceDocument::toDomain);
+	public Optional<Price> findByBoard(final String board) {		
+		return priceRepository.findById(board).map(PriceDocument::toDomain);
 	}
 
 }

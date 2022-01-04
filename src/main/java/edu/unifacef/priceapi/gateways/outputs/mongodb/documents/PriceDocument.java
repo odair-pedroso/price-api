@@ -2,13 +2,13 @@ package edu.unifacef.priceapi.gateways.outputs.mongodb.documents;
 
 import java.time.LocalDateTime;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import edu.unifacef.priceapi.domains.Price;
-import edu.unifacef.priceapi.domains.TypeCar;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -27,7 +27,7 @@ public class PriceDocument {
 	private LocalDateTime lastModifiedDate;
 	
 	public PriceDocument(final Price price) {
-		this.id = price.getTypeCar().getDescription();
+		this.id = price.getCarBoard();
 		this.from = price.getFrom();
 		this.to = price.getTo();
 		this.createdDate = price.getCreatedDate();
@@ -36,7 +36,7 @@ public class PriceDocument {
 	
 	public Price toDomain() {
 		return Price.builder()
-			//.typeCar(this.id)
+			.carBoard(this.id)
 			.from(this.from)
 			.to(this.to)
 	        .createdDate(this.createdDate)

@@ -7,5 +7,5 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017/price-api
 integration:
-  location:
+  rental:
     url:  http://localhost:8084

@@ -3,7 +3,7 @@ package edu.unifacef.priceapi.gateways.outputs.http;
 import org.springframework.stereotype.Component;
 
 import edu.unifacef.priceapi.domains.Price;
-import edu.unifacef.priceapi.gateways.outputs.LocationGateway;
+import edu.unifacef.priceapi.gateways.outputs.RentalGateway;
 import edu.unifacef.priceapi.gateways.outputs.http.resources.PriceResource;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -11,15 +11,15 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class LocationGatewayHttpImpl implements LocationGateway {
+public class RentalGatewayHttpImpl implements RentalGateway {
 	
-	private final LocationFeignIntegration locationFeignIntegration;
+	private final RentalFeignIntegration rentalFeignIntegration;
 
 	@Override
 	public void send(Price price) {
-		log.info("Sending price to Location. Type car: {}",price.getTypeCar());
+		log.info("Sending price to Rental. Car board: {}",price.getCarBoard());
 		PriceResource priceResource = new PriceResource(price);
-		locationFeignIntegration.send(price.getTypeCar(), priceResource);
+		rentalFeignIntegration.send(price.getCarBoard(), priceResource);
 		
 	}
 

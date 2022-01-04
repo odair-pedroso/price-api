@@ -12,7 +12,7 @@ import edu.unifacef.priceapi.domains.Price;
 import edu.unifacef.priceapi.gateways.inputs.http.requests.PriceRequest;
 import edu.unifacef.priceapi.gateways.inputs.http.responses.PriceResponse;
 import edu.unifacef.priceapi.usecases.CreatePrice;
-import edu.unifacef.priceapi.usecases.FindByTypeCar;
+import edu.unifacef.priceapi.usecases.FindByCarBoard;
 import edu.unifacef.priceapi.usecases.UpdatePrice;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -27,7 +27,7 @@ public class PriceController {
 	
 	private final PriceValidator priceValidator;
 	private final CreatePrice createPrice;
-	private final FindByTypeCar findByTypeCar;
+	private final FindByCarBoard findByTypeCar;
 	private final UpdatePrice updatePrice;
 	
 	
